@@ -1,0 +1,49 @@
+[
+  {
+    "frameIndex": 12,
+    "annotationType": "point",
+    "annotationData": {
+      "relativeX": 0.33448275862068966,
+      "relativeY": 0.7358287284289816,
+      "x": 1155.9724137931034,
+      "y": 1643.841379310345,
+      "label": "\u5355\u51fb"
+    }
+  },
+  {
+    "frameIndex": 12,
+    "annotationType": "point",
+    "annotationData": {
+      "relativeX": 0.31264367816091954,
+      "relativeY": 0.465548112246473,
+      "x": 1080.4965517241378,
+      "y": 1040.0344827586207,
+      "label": "\u5355\u51fb"
+    }
+  },
+  {
+    "frameIndex": 12,
+    "annotationType": "point",
+    "annotationData": {
+      "relativeX": 0.4057471264367816,
+      "relativeY": 0.6149137159262804,
+      "x": 1402.2620689655173,
+      "y": 1373.7172413793105,
+      "label": "\u5355\u51fb"
+    }
+  },
+  {
+    "frameIndex": 14,
+    "annotationType": "boundingBox",
+    "annotationData": {
+      "relativeStartX": 0.4425287356321839,
+      "relativeStartY": 0.558012533572068,
+      "relativeEndX": 0.6632183908045977,
+      "relativeEndY": 0.8994196276973421,
+      "x1": 1529.3793103448277,
+      "y1": 1246.6,
+      "x2": 2292.0827586206897,
+      "y2": 2009.3034482758621
+    }
+  }
+]

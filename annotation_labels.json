@@ -1,0 +1,16 @@
+{
+    "point": [
+        "单击",
+        "双击"
+    ],
+    "boundingBox": [
+        "行人",
+        "汽车"
+    ],
+    "shortcut": [
+        "Ctrl+C",
+        "Ctrl+V",
+        "Ctrl+Z"
+    ],
+    "text": []
+}

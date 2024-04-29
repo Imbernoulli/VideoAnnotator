@@ -1,0 +1,56 @@
+[
+  {
+    "frameIndex": 18,
+    "annotationType": "point",
+    "annotationData": {
+      "relativeX": 0.27848101265822783,
+      "relativeY": 0.5812153876582279,
+      "label": "\u5355\u51fb"
+    }
+  },
+  {
+    "frameIndex": 18,
+    "annotationType": "point",
+    "annotationData": {
+      "relativeX": 0.5126582278481012,
+      "relativeY": 0.6915793117088608,
+      "label": "\u5355\u51fb"
+    }
+  },
+  {
+    "frameIndex": 18,
+    "annotationType": "boundingBox",
+    "annotationData": {
+      "relativeStartX": 0.30063291139240506,
+      "relativeStartY": 0.28216475474683544,
+      "relativeEndX": 0.5,
+      "relativeEndY": 0.5189131724683544,
+      "label": "\u884c\u4eba"
+    }
+  },
+  {
+    "frameIndex": 18,
+    "annotationType": "boundingBox",
+    "annotationData": {
+      "relativeStartX": 0.2879746835443038,
+      "relativeStartY": 0.6452976661392404,
+      "relativeEndX": 0.5854430379746836,
+      "relativeEndY": 0.8446647547468354,
+      "label": "\u6c7d\u8f66"
+    }
+  },
+  {
+    "frameIndex": 18,
+    "annotationType": "text",
+    "annotationData": {
+      "text": "a"
+    }
+  },
+  {
+    "frameIndex": 18,
+    "annotationType": "shortcut",
+    "annotationData": {
+      "label": "Ctrl+C"
+    }
+  }
+]

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Data Annotator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Video Actions Annotator</h1>
+    <input type="file" id="file-input" accept="video/*">
+
+    <div class="video-container">
+      <div class="video-wrapper">
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+
+    <audio id="video-audio"></audio>
+
+    <div class="controls">
+      <button id="prev-button" class="control-button">Prev</button>
+      <button id="play-pause-button" class="control-button">Play</button>
+      <button id="next-button" class="control-button">Next</button>
+      <input type="range" id="frame-slider" min="0" value="0" class="frame-slider">
+      <span id="frame-info"></span>
+    </div>
+
+    <div class="annotation-type">
+      <label for="annotation-type">Annotation Type:</label>
+      <select id="annotation-type">
+        <option value="point">Point</option>
+        <option value="boundingBox">Bounding Box</option>
+        <option value="text">Text</option>
+        <option value="shortcut">Shortcut</option>
+      </select>
+      <label for="annotation-label">Label:</label>
+      <select id="annotation-label">
+        <!-- Label options will be added here dynamically -->
+      </select>
+    </div>
+
+    <div class="subtitle-container">
+      <input type="text" id="subtitle-input" class="subtitle-input" readonly>
+      <button id="generate-button" class="generate-button">Generate Subtitle</button>
+    </div>
+
+    <button id="save-button" class="save-button">Save Annotations</button>
+
+    <div class="annotation-info" id="annotation-info"></div>
+    <button id="delete-button" class="delete-button">Delete Selected Annotation</button>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
