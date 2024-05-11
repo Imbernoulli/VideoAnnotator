@@ -637,3 +637,60 @@ generateButton.addEventListener('click', function () {
             subtitleInput.value = data.subtitle;
         });
 });
+
+document.getElementById('add-task-button').addEventListener('click', addTask);
+
+let tasks = [];
+
+function addTask() {
+    const taskContent = prompt('请输入任务内容:');
+    if (taskContent) {
+        const task = {
+            content: taskContent,
+            startFrame: currentFrameIndex,
+            endFrame: null
+        };
+        tasks.push(task);
+        updateTaskList();
+    }
+}
+
+function updateTaskList() {
+    const taskList = document.getElementById('task-list');
+    taskList.innerHTML = '';
+    tasks.forEach((task, index) => {
+        const taskElement = document.createElement('div');
+        taskElement.textContent = `${task.content} (Start: ${task.startFrame + 1}, End: ${task.endFrame ? task.endFrame + 1 : '-'})`;
+        
+        if (!task.endFrame) {
+            const endButton = document.createElement('button');
+            endButton.textContent = 'End';
+            endButton.addEventListener('click', () => endTask(index));
+            taskElement.appendChild(endButton);
+        }
+        
+        taskList.appendChild(taskElement);
+    });
+}
+
+function endTask(taskIndex) {
+    tasks[taskIndex].endFrame = currentFrameIndex;
+    updateTaskList();
+    saveTasks();
+}
+
+function saveTasks() {
+    fetch('/save_tasks', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(tasks)
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                console.log('Tasks saved successfully');
+            }
+        });
+}

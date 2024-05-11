@@ -112,6 +112,13 @@ def delete_annotation():
     else:
         return jsonify(success=False, message="Invalid annotation index")
 
+@app.route('/save_tasks', methods=['POST'])
+def save_tasks():
+    tasks = request.get_json()
+    # 将tasks保存到外部文件,例如tasks.json
+    with open('tasks.json', 'w') as f:
+        json.dump(tasks, f)
+    return jsonify({'success': True})
 
 def handle_audio(frame_index):
     # 模拟生成字幕的函数，这里只是返回一个占位符字符串
