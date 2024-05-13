@@ -660,14 +660,53 @@ function updateTaskList() {
     taskList.innerHTML = '';
     tasks.forEach((task, index) => {
         const taskElement = document.createElement('div');
-        taskElement.textContent = `${task.content} (Start: ${task.startFrame + 1}, End: ${task.endFrame ? task.endFrame + 1 : '-'})`;
-        
-        if (!task.endFrame) {
-            const endButton = document.createElement('button');
-            endButton.textContent = 'End';
-            endButton.addEventListener('click', () => endTask(index));
-            taskElement.appendChild(endButton);
-        }
+
+        // Content editing
+        const contentInput = document.createElement('input');
+        contentInput.type = 'text';
+        contentInput.value = task.content;
+        contentInput.addEventListener('change', () => {
+            task.content = contentInput.value;
+            saveTasks();
+        });
+
+        // Start frame editing
+        const startInput = document.createElement('input');
+        startInput.type = 'number';
+        startInput.value = task.startFrame + 1;
+        startInput.addEventListener('change', () => {
+            task.startFrame = parseInt(startInput.value) - 1;
+            saveTasks();
+        });
+
+        // End frame editing (with conditional rendering)
+        const endInput = document.createElement('input');
+        endInput.type = 'number';
+        endInput.disabled = !task.endFrame;
+        endInput.value = task.endFrame ? task.endFrame + 1 : '';
+        endInput.addEventListener('change', () => {
+            task.endFrame = parseInt(endInput.value) - 1;
+            saveTasks();
+        });
+
+        const endButton = document.createElement('button');
+        endButton.textContent = task.endFrame ? 'Edit End' : 'End';
+        endButton.addEventListener('click', () => {
+            if (!task.endFrame) {
+                task.endFrame = currentFrameIndex;
+                endInput.disabled = false;
+                endButton.textContent = 'Edit End';
+                endInput.value = currentFrameIndex + 1;
+            }
+            saveTasks();
+            updateTaskList();
+        });
+
+        // Append all elements
+        taskElement.appendChild(contentInput);
+        taskElement.appendChild(startInput);
+        taskElement.appendChild(endInput);
+        taskElement.appendChild(endButton);
         
         taskList.appendChild(taskElement);
     });
@@ -691,6 +730,8 @@ function saveTasks() {
         .then(data => {
             if (data.success) {
                 console.log('Tasks saved successfully');
+            } else {
+                console.error('Failed to save tasks');
             }
         });
 }
